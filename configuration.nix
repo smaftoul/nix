@@ -23,10 +23,10 @@
 
   time.timeZone = "Europe/Paris";
 
-  users.users.root.openssh.authorizedKeys.keys = [ ./ssh_key.pub ];
+  users.users.root.openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh_key.pub) ];
 
   users.users.smaftoul = {
-    openssh.authorizedKeys.keys = [ ./ssh_key.pub ];
+    openssh.authorizedKeys.keys = [ (builtins.readFile ./ssh_key.pub) ];
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = "/etc/profiles/per-user/smaftoul/bin/zsh";

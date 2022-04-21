@@ -1,0 +1,5 @@
+#cloud-config
+
+runcmd:
+  - cd /tmp ; curl -L https://github.com/smaftoul/nix/archive/refs/heads/master.tar.gz |tar xz
+  - openvt bash /tmp/nix-master/bootstrap.sh 2>&1 > /tmp/bootstrap.log 

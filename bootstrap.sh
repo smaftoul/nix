@@ -2,6 +2,8 @@
 
 set -xe
 
+exec 2>&1 > /tmp/bootstrap.log
+
 groupadd nixbld -g 30000 || true
 
 for i in {1..10}; do

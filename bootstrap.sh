@@ -10,7 +10,7 @@ for i in {1..10}; do
   useradd -c "Nix build user $i" -d /var/empty -g nixbld -G nixbld -M -N -r -s "$(which nologin)" "nixbld$i" || true
 done
 
-curl -L https://nixos.org/nix/install | bash -x
+curl -L https://nixos.org/nix/install | bash -x 2>&1 > /tmp/nix-install.log
 
 . /root/.nix-profile/etc/profile.d/nix.sh
 

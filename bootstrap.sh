@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-set -e
+set -xe
 
 groupadd nixbld -g 30000 || true
 
@@ -28,6 +28,6 @@ nix-env --set \
   -A system
 
 curl https://raw.githubusercontent.com/elitak/nixos-infect/master/nixos-infect | \
-	NIX_CHANNEL=nixos-unstable \
-	NIXOS_CONFIG=/tmp/nix-master/configuration.nix \
-	bash 2>&1 | tee /tmp/infect.log
+       NIX_CHANNEL=nixos-unstable \
+       NIXOS_CONFIG=/tmp/nix-master/configuration.nix \
+       bash 2>&1 | tee /tmp/infect.log
